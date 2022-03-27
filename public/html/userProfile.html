@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Profile</title>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img class="reddit-logo" src="/img/reddit-logo.png" alt="reddit-logo" width="40px">
+      <img class="reddit-name" src="/img/Reddit-name.svg.png" alt="reddit-name" width="60px">
+    </div>
+    <form class="search-form">
+      <span class="material-icons search">search</span>
+      <input type="search" id="search" placeholder="Search Reddit">
+    </form>
+    <div class="nav-buttons">
+      <span class="material-icons logout" title="Log Out">logout</span>
+      <a href="/login" class="login">Log In</a>
+      <a href="/regist" class="signup">Sign Up</a>
+      <a class="nav-avatar-img" href="#"><img class="avatar-img" src="/img/avatar1.png"></a>
+    </div>
+  </nav>
+  <main>
+    <div class="user-profile-main-section">
+      <div class="container">
+        <div class="profile-info">
+          <div class="user-details">
+            <img class="avatar-img" src="/img/avatar1.png">
+            <h2 class="username-profile"></h2>
+          </div>
+        </div>
+        <h4 class="user-profile-header">Recently Added</h4>
+        <div class="posts-container">
+          
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="/js/variables.js"></script>
+  <script src="/js/createElement.js"></script>
+  <script src="/js/logoutFetch.js"></script>
+  <script src="/js/dom.js"></script>
+  <script src="/js/createPostCard.js"></script>
+  <script src="/js/fetchUserPosts.js"></script>
+</body>
+</html>

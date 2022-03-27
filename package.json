@@ -4,7 +4,9 @@
   "description": "Reddit Clone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "dev": "cross-env NODE_ENV=dev nodemon server/index.js",
+    "test": "cross-env NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
