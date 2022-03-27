@@ -4,9 +4,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="/css/loginStyle.css">
+  <title>Reddit.com Sign Up</title>
 </head>
 <body>
-  
+  <div class="main">
+    <img src="../img/bg2.png" alt="login background">
+  </div>
+  <div class="form">
+    <form id="loginForm">
+      <h2>Sign Up</h2>
+      <img src="../img/icon1.png" alt="" width="120px">
+      <div class="input-box">
+        <label for="username">Username</label>
+        <input type="text" id="username">
+        <span class="material-icons username-error error-icon">check_circle</span>
+        <p class="username-error-message error"></p>
+      </div>
+      <div class="input-box">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="email">
+        <span class="material-icons email-error error-icon">check_circle</span>
+        <p class="email-error-message error"></p>
+      </div>
+      <div class="input-box">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="password">
+        <span class="material-icons password-error error-icon">check_circle</span>
+        <p class="password-error-message error"></p>
+      </div>
+      <div class="input-box">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password">
+        <span class="material-icons confirm-password-error error-icon">check_circle</span>
+        <p class="confirm-password-error-message error"></p>
+      </div>
+      <button type="button" class="regist-btn">Sign Up</button>
+      <p class="new-redditor">Already a redditor? <a href="/login">log in</a></p>
+    </form>
+  </div>
+  <script src="../js/variables.js"></script>
+  <script src="../js/clientServerValidation.js"></script>
+  <script src="../js/registFetch.js"></script>
 </body>
 </html>
