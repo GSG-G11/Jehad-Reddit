@@ -4,9 +4,104 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Reddit - Dive into anything</title>
 </head>
 <body>
+  <nav>
+    <div class="logo">
+      <a class="reddit-logo-link" href="/"><img class="reddit-logo" src="/img/reddit-logo.png" alt="reddit-logo" width="40px"></a>
+      <a href="/"><img class="reddit-name" src="/img/Reddit-name.svg.png" alt="reddit-name" width="60px"></a>
+    </div>
+    <form class="search-form">
+      <span class="material-icons search">search</span>
+      <input type="search" id="search" placeholder="Search Reddit">
+    </form>
+    <div class="nav-buttons">
+      <span class="material-icons logout" title="Log Out">logout</span>
+      <a href="/login" class="login">Log In</a>
+      <a href="/regist" class="signup">Sign Up</a>
+      <a class="nav-avatar-img" href="#"><img class="avatar-img" src="/img/avatar1.png"></a>
+    </div>
+  </nav>
+  <main>
+    <!-- Start Trending Posts -->
+    <section class="trending-posts">
+      <div class="container">
+        <h4 class="trend-title">Trending Today</h4>
+        <div class="trending-posts-container">
   
+        </div>
+      </div>
+    </section>
+    <!-- End Trending Posts -->
+
+    <!-- Start Add Post Form -->
+    <div class="main-content">
+      <div class="container">
+        <div class="main-content-container">
+          <div class="posts-section">
+            <form class="add-post-form">
+              <input class="post-title-input"  id="post-title-input" type="text" placeholder="Title">
+              <textarea class="post-content-input"  id="post-content-input" placeholder="Create Post"></textarea>
+              <input class="post-img-input"  id="post-img-input" type="text" placeholder="image url">
+              <button type="button" class="post-btn">Post</button>
+            </form>
+            <div class="posts-container">
+              <!-- <div class="post-box">
+                <div class="vote-buttons">
+                  <span class="material-icons">arrow_circle_up</span>
+                  <span class="counter">500</span>
+                  <span class="material-icons">arrow_circle_down</span>
+                </div>
+                <div class="post-details-container">
+                  <div class="posted-details">
+                    <div class="avatar-div">
+                      <img class="username-avatar" src="./img/avatar1.png" alt="">
+                      <span class="posted-by">Posted by <a class="username" href="#">Jehad</a></span>
+                    </div>
+                    <span class="time">19 hours ago</span>
+                  </div>
+                  <h4 class="post-title">Welcome</h4>
+                  <p class="post-content">Hello Everyone to Jehad Reddit Clone</p>
+                  <img src="./img/reddit.jpg" alt="" class="post-img">
+                </div>
+                <button class="write-comment">
+                  <span class="material-icons">chat_bubble_outline</span>
+                  Write Comment
+                </button>
+              </div> -->
+            </div>
+          </div>
+          <div class="aside-section">
+            <h3 class="aside-title">Top Reddit Communities</h3>
+            <ol class="community-list">
+              <li><a target="_blank" href="/search/cat/show">r/cat</a></li>
+              <li><a target="_blank" href="/search/comics/show">r/comics</a></li>
+              <li><a target="_blank" href="/search/dog/show">r/dog</a></li>
+              <li><a target="_blank" href="/search/oddlyterrifying/show">r/oddlyterrifying</a></li>
+              <li><a target="_blank" href="/search/realmadrid/show">r/realmadrid</a></li>
+              <li><a target="_blank" href="/search/pics/show">r/pics</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Add Post Form -->
+  </main>
+
+  <script src="/js/variables.js"></script>
+  <script src="/js/createElement.js"></script>
+  <script src="/js/logoutFetch.js"></script>
+  <script src="/js/dom.js"></script>
+  <script src="/js/createPostCard.js"></script>
+  <script src="/js/fetchTrendingPosts.js"></script>
+  <script src="/js/postDetails.js"></script>
 </body>
 </html>
