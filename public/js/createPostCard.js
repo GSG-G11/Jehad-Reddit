@@ -24,10 +24,8 @@ const createPostCard = (postData) => {
   const usernameLink = createElement('a', 'username');
   if (postData.username) {
     usernameLink.textContent = postData.username;
-    navAvatarImg.setAttribute('title', postData.username);
   } else {
-    usernameLink.textContent = usernameTest;
-    navAvatarImg.setAttribute('title', usernameTest);
+    usernameLink.textContent = userName;
   }
   usernameLink.href = `/user/${postData.user_id}/profile`;
   navAvatarImg.setAttribute('href', `/user/${postData.user_id}/profile`);
@@ -76,28 +74,30 @@ const createPostCard = (postData) => {
   }
   commentForm.addEventListener('submit', (form) => {
     form.preventDefault();
-    fetch(`/post/${postData.id}/comments`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        commentContent: commentInput.value,
-        postId: postData.id,
-        userId: id,
-      }),
-    })
-      .then((data) => data.json())
-      .then(({ post }) => {
-        ++commentNumbers.textContent;
-        const commentBox = createElement('div', 'comment-box');
-        const commentBy = createElement('h4', 'comment-by');
-        const commentText = createElement('p', 'comment-text');
-        commentBy.textContent = usernameTest;
-        commentText.textContent = post.comment_content;
-        commentBox.append(commentBy, commentText);
-        commentsContainer.append(commentBox);
+    if (commentInput.value !== '') {
+      fetch(`/post/${postData.id}/comments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          commentContent: commentInput.value,
+          postId: postData.id,
+          userId: userID,
+        }),
       })
-      .catch((err) => console.log(err));
-    commentInput.value = '';
+        .then((data) => data.json())
+        .then(({ post }) => {
+          ++commentNumbers.textContent;
+          const commentBox = createElement('div', 'comment-box');
+          const commentBy = createElement('h4', 'comment-by');
+          const commentText = createElement('p', 'comment-text');
+          commentBy.textContent = userName;
+          commentText.textContent = post.comment_content;
+          commentBox.append(commentBy, commentText);
+          commentsContainer.append(commentBox);
+        })
+        .catch((err) => console.log(err));
+      commentInput.value = '';
+    }
   });
 
   writeCommentButton.addEventListener('click', (element) => {

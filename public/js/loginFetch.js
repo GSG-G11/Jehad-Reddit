@@ -9,9 +9,9 @@ loginPageButton.addEventListener('click', (e) => {
       password: passwordInput.value,
     }),
   }).then((data) => data.json())
-    .then(({ msg, status, post }) => {
+    .then(({ msg, status }) => {
       if (status === 201) {
-        window.location.href = `/user/${post.userId}`;
+        window.location.href = '/';
       } else if (msg.includes('Email') || msg.includes('email')) {
         passwordErrorMessage.textContent = '';
         emailErrorMessage.textContent = msg;
