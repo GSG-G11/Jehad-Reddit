@@ -29,3 +29,4 @@ const postButton = document.querySelector('.post-btn');
 const usernameProfile = document.querySelector('.username-profile');
 const redditLogo = document.querySelector('.reddit-logo');
 const navAvatarImg = document.querySelector('.nav-avatar-img');
+const scrollUpBtn = document.querySelector('.scroll-up');

@@ -12,6 +12,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "IBM Plex Sans", sans-serif !important;
 }
@@ -187,6 +190,19 @@ nav .logo img {
 /****************************************************
                 TRENDING POSTS STYLE
 ****************************************************/
+.scroll-up {
+  position: fixed;
+  background: var(--blue);
+  color: white;
+  bottom: 30px;
+  right: 45px;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
 main {
   background-color: var(--lightBlue);
   min-height: 100vh;
