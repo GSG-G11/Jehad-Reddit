@@ -15,7 +15,7 @@ const {
   registPage,
   userProfilePage,
   addPost,
-  gettAllPosts,
+  getAllPosts,
   getUserPosts,
   getPostComments,
   addComment,
@@ -28,7 +28,7 @@ router.get('/home', getTrendingPosts);
 router.get('/user/:id', homePage);
 
 router.post('/posts', addPost);
-router.get('/posts', gettAllPosts);
+router.get('/posts', getAllPosts);
 router.get('/userr/:id', getUserById);
 
 router.get('/search/:value', getRedditPostsWhenSearch);

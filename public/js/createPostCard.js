@@ -9,7 +9,7 @@ const createPostCard = (postData) => {
   const voteUpSpan = createElement('span', 'material-icons up-icon');
   voteUpSpan.textContent = 'forward';
   const counterSpan = createElement('span', 'counter');
-  counterSpan.textContent = 500;
+  counterSpan.textContent = 1;
   const voteDownSpan = createElement('span', 'material-icons down-icon');
   voteDownSpan.textContent = 'forward';
   voteButtonsDiv.append(voteUpSpan, counterSpan, voteDownSpan);
