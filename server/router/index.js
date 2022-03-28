@@ -1,5 +1,5 @@
 const express = require('express');
-// const checkAuth = require('../middleware/checkAuth');
+const checkAuth = require('../middleware/checkAuth');
 const {
   pageNotFound,
   serverError,
@@ -23,7 +23,7 @@ const router = express.Router();
 
 router.get('/home', getTrendingPosts);
 
-router.post('/posts', addPost);
+router.post('/posts', checkAuth, addPost);
 router.get('/posts', getAllPosts);
 
 router.get('/search/:value', getRedditPostsWhenSearch);
@@ -34,14 +34,14 @@ router.get('/user/:id/profile', userProfilePage);
 router.get('/user/:id/profiles', getUserPosts);
 
 router.get('/post/:id/comments', getPostComments);
-router.post('/post/:id/comments', addComment);
+router.post('/post/:id/comments', checkAuth, addComment);
 
 router.get('/login', loginPage);
 router.get('/regist', registPage);
 
 router.post('/regist', userRegist);
 router.post('/login', userLogin);
-router.post('/logout', userLogOut);
+router.post('/logout', checkAuth, userLogOut);
 
 // router.use(checkAuth);
 

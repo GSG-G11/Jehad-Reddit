@@ -28,7 +28,6 @@ const createPostCard = (postData) => {
     usernameLink.textContent = userName;
   }
   usernameLink.href = `/user/${postData.user_id}/profile`;
-  navAvatarImg.setAttribute('href', `/user/${postData.user_id}/profile`);
   postedBySpan.append('Posted by ', usernameLink);
   avatarUsernameDiv.append(usernameAvatarImage, postedBySpan);
 
