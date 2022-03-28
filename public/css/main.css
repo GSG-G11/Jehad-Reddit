@@ -150,8 +150,10 @@ nav .logo img {
 }
 .nav-buttons .logout {
   cursor: pointer;
-  color: #333;
+  color: #4d4d4d;
   display: none;
+  font-weight: bold;
+  font-size: 20px;
 }
 .nav-buttons .login,
 .nav-buttons .signup {
@@ -169,12 +171,20 @@ nav .logo img {
   background-color: white;
   color: var(--blue);
 }
-.nav-buttons .avatar-img {
+.nav-buttons .nav-avatar-img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-buttons .nav-avatar-img h4 {
+  color: var(--blue);
+}
+.nav-buttons .nav-avatar-img .avatar-img {
   max-width: 100%;
   border-radius: 50%;
   background-color: gray;
-  width: 50px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   display: none;
 }
 .nav-buttons .login:hover {
@@ -456,6 +466,7 @@ main {
   height: 150px;
   background-image: url("../img/reddit-cover.jpg");
   background-size: cover;
+  border-radius: 10px;
 }
 .user-profile-main-section .profile-info .user-details {
   display: flex;

@@ -22,6 +22,7 @@ if (document.cookie) {
   userName = document.cookie.split('; ')[0].slice(9);
   userID = document.cookie.split('; ')[1].slice(3);
   navAvatarImg.setAttribute('title', userName);
+  usernameProfile.textContent = userName;
   navAvatarImg.setAttribute('href', `/user/${userID}/profile`);
   loginMainButton.style.display = 'none';
   logoutMainButton.style.display = 'block';
