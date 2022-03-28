@@ -4,7 +4,6 @@ const {
   userRegist,
   userLogin,
   userLogOut,
-  getUserById,
 } = require('./users');
 
 const {
@@ -13,14 +12,12 @@ const {
   addPost,
   getAllPosts,
   getUserPosts,
-  getSinglePost,
 } = require('./posts');
 
 const { getPostComments, addComment } = require('./comments');
 
 const {
   searchPage,
-  homePage,
   loginPage,
   registPage,
   userProfilePage,
@@ -32,11 +29,9 @@ module.exports = {
   userRegist,
   userLogin,
   userLogOut,
-  getUserById,
   getRedditPostsWhenSearch,
   getTrendingPosts,
   searchPage,
-  homePage,
   loginPage,
   registPage,
   userProfilePage,
@@ -45,5 +40,4 @@ module.exports = {
   getUserPosts,
   getPostComments,
   addComment,
-  getSinglePost,
 };

@@ -6,11 +6,9 @@ const {
   userRegist,
   userLogin,
   userLogOut,
-  getUserById,
   getTrendingPosts,
   getRedditPostsWhenSearch,
   searchPage,
-  homePage,
   loginPage,
   registPage,
   userProfilePage,
@@ -25,11 +23,8 @@ const router = express.Router();
 
 router.get('/home', getTrendingPosts);
 
-router.get('/user/:id', homePage);
-
 router.post('/posts', addPost);
 router.get('/posts', getAllPosts);
-router.get('/userr/:id', getUserById);
 
 router.get('/search/:value', getRedditPostsWhenSearch);
 router.get('/search/:value/show', searchPage);

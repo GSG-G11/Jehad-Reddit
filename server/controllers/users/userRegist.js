@@ -24,8 +24,11 @@ const userRegist = (req, res, next) => {
       userData = rows[0];
       return signToken({ userId: rows[0].id, username: rows[0].username });
     })
-    .then((token) => res.cookie('access_token', token) // { httpOnly: true, secure: true }
+    .then((token) => res
       .status(201)
+      .cookie('username', username)
+      .cookie('id', userData.id)
+      .cookie('access_token', token) // { httpOnly: true, secure: true }
       .json({ msg: 'Sign Up Successfuly', status: 201, post: userData }))
     .catch((err) => {
       if (err.name === 'ValidationError') {

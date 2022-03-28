@@ -1,6 +1,9 @@
 const userLogOut = (req, res, next) => {
   try {
-    res.clearCookie('access_token').redirect('/');
+    res
+      .clearCookie('id')
+      .clearCookie('username')
+      .clearCookie('access_token').redirect('/');
   } catch (err) {
     next(err);
   }

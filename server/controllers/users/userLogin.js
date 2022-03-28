@@ -26,8 +26,11 @@ const userLogin = (req, res, next) => {
         return signToken({ userId, username });
       }
     })
-    .then((token) => res.cookie('access_token', token) // { httpOnly: true, secure: true }
+    .then((token) => res
       .status(201)
+      .cookie('username', username)
+      .cookie('id', userId)
+      .cookie('access_token', token) // { httpOnly: true, secure: true }
       .json({ msg: 'Log In Successfuly', status: 201, post: { username, userId } }))
     .catch((err) => {
       if (err.name === 'ValidationError') {

@@ -12,9 +12,9 @@ registPageButton.addEventListener('click', (e) => {
       confirmPassword: confirmPasswordInput.value,
     }),
   }).then((data) => data.json())
-    .then(({ msg, status, post }) => {
+    .then(({ msg, status }) => {
       if (status === 201) {
-        window.location.href = `/user/${post.id}`;
+        window.location.href = '/';
       } else if (msg.includes('Email') || msg.includes('email')) {
         passwordErrorMessage.textContent = '';
         confirmPasswordErrorMessage.textContent = '';
