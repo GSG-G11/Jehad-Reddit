@@ -7,7 +7,8 @@ const getUserPostsQuery = (userId) => {
                   posts.post_image,
                   posts.create_at,
                   users.username,
-                  posts.user_id
+                  posts.user_id,
+                  posts.id
                   FROM posts JOIN users ON users.id = posts.user_id
                   WHERE users.id=$1;`,
     values: [userId],
