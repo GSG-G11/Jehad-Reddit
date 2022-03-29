@@ -87,11 +87,15 @@ const createPostCard = (postData) => {
         .then(({ post }) => {
           ++commentNumbers.textContent;
           const commentBox = createElement('div', 'comment-box');
+          const commentedAvatar = createElement('img', 'comment-img');
+          commentedAvatar.src = '/img/comment-avatar.png';
+          const commentInfo = createElement('div', 'comment-info');
           const commentBy = createElement('h4', 'comment-by');
           const commentText = createElement('p', 'comment-text');
           commentBy.textContent = userName;
           commentText.textContent = post.comment_content;
-          commentBox.append(commentBy, commentText);
+          commentInfo.append(commentBy, commentText);
+          commentBox.append(commentedAvatar, commentInfo);
           commentsContainer.append(commentBox);
         })
         .catch((err) => console.log(err));
@@ -110,12 +114,16 @@ const createPostCard = (postData) => {
         }
         post.forEach((comment) => {
           const commentBox = createElement('div', 'comment-box');
+          const commentedAvatar = createElement('img', 'comment-img');
+          commentedAvatar.src = '/img/comment-avatar.png';
+          const commentInfo = createElement('div', 'comment-info');
           const commentBy = createElement('h4', 'comment-by');
           const commentText = createElement('p', 'comment-text');
           commentBy.textContent = comment.username;
           usernameComment = comment.username;
           commentText.textContent = comment.comment_content;
-          commentBox.append(commentBy, commentText);
+          commentInfo.append(commentBy, commentText);
+          commentBox.append(commentedAvatar, commentInfo);
           if (commentsContainer.children.length <= commentCount) {
             commentsContainer.append(commentBox);
           }

@@ -395,6 +395,7 @@ main {
 .posts-container .post-box .post-details-container {
   width: 93%;
   background-color: white;
+  padding-bottom: 10px;
 }
 .posts-container .post-box .post-details-container .posted-details {
   display: flex;
@@ -429,7 +430,7 @@ main {
   line-height: 1.5;
   font-size: 15px;
 }
-.posts-container .post-box .post-details-container img {
+.posts-container .post-box .post-details-container .post-img {
   margin: auto;
   display: block;
   max-height: 330px;
@@ -491,16 +492,30 @@ main {
               COMMENT SECTION STYLE
 ****************************************************/
 .comments-container .comment-box {
-  border-bottom: 1px solid #cccccc7a;
+  display: flex;
+  gap: 10px;
   padding: 10px;
 }
-.comments-container .comment-box h4 {
-  color: #666;
+.comments-container .comment-box .comment-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.comments-container .comment-box .comment-info {
+  background: #eee;
+  width: fit-content;
+  border-radius: 15px;
+  padding: 8px 15px;
+}
+.comments-container .comment-box .comment-info h4 {
+  color: #333;
   font-size: 14px;
   margin-bottom: 5px;
 }
-.comments-container .comment-box p {
+.comments-container .comment-box .comment-info p {
   font-size: 14px;
+  line-height: 1.5;
 }
 .comments-container .comment-form .comment-input {
   width: 100%;
