@@ -454,6 +454,9 @@ main {
   border-radius: 50%;
   background-color: #ccc;
 }
+.delete-icon {
+  cursor: pointer;
+}
 .posts-container .post-box .post-details-container .post-title {
   padding: 15px 10px;
 }

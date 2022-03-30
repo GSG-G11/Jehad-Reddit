@@ -93,10 +93,17 @@ const createPostCard = (postData) => {
   postedBySpan.append('Posted by ', usernameLink);
   avatarUsernameDiv.append(usernameAvatarImage, postedBySpan);
 
+  const deleteTimeDiv = createElement('div', 'delete-time-div');
   const timePostedSpan = createElement('span', 'time');
+  const deleteIcon = createElement('span', 'material-icons delete-icon');
+  deleteIcon.textContent = 'delete';
   timePostedSpan.textContent = postData.create_at;
-  postDetailsDiv.append(avatarUsernameDiv, timePostedSpan);
-
+  if (postData.user_id == userID) {
+    deleteTimeDiv.append(timePostedSpan, deleteIcon);
+  } else {
+    deleteTimeDiv.append(timePostedSpan);
+  }
+  postDetailsDiv.append(avatarUsernameDiv, deleteTimeDiv);
   const postTitleHeader = createElement('h4', 'post-title');
   postTitleHeader.textContent = postData.post_title;
 
@@ -113,8 +120,18 @@ const createPostCard = (postData) => {
   commentIcon.textContent = 'chat_bubble_outline';
   writeCommentButton.append(commentIcon, commentNumbers, 'Comments');
 
-  // Fetch comments
+  // Delete Post
+  deleteIcon.addEventListener('click', (e) => {
+    fetch(`/post/${postData.id}/delete`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(() => {
+      e.path[4].remove();
+    })
+      .catch((err) => console.log(err));
+  });
 
+  // Fetch comments
   fetch(`/post/${postData.id}/comments`)
     .then((data) => data.json())
     .then(({ post, commentCount }) => {
