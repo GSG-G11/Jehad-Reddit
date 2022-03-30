@@ -17,6 +17,9 @@ const {
   getUserPosts,
   getPostComments,
   addComment,
+  addVote,
+  getVotes,
+  deleteVote,
 } = require('../controllers');
 
 const router = express.Router();
@@ -35,6 +38,10 @@ router.get('/user/:id/profiles', getUserPosts);
 
 router.get('/post/:id/comments', getPostComments);
 router.post('/post/:id/comments', checkAuth, addComment);
+
+router.post('/post/id/votes', addVote);
+router.get('/post/:id/votes', getVotes);
+router.delete('/post/id/deletevotes', deleteVote);
 
 router.get('/login', loginPage);
 router.get('/regist', registPage);
