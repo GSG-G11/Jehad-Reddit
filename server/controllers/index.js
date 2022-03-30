@@ -23,6 +23,8 @@ const {
   userProfilePage,
 } = require('./pages');
 
+const { addVote, getVotes, deleteVote } = require('./votes');
+
 module.exports = {
   pageNotFound,
   serverError,
@@ -40,4 +42,7 @@ module.exports = {
   getUserPosts,
   getPostComments,
   addComment,
+  addVote,
+  getVotes,
+  deleteVote,
 };

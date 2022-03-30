@@ -14,6 +14,68 @@ const createPostCard = (postData) => {
   voteDownSpan.textContent = 'forward';
   voteButtonsDiv.append(voteUpSpan, counterSpan, voteDownSpan);
 
+  // Fetch Vote
+  if (document.cookie) {
+    voteUpSpan.style.pointerEvents = 'auto';
+    voteDownSpan.style.pointerEvents = 'auto';
+  } else {
+    voteUpSpan.style.pointerEvents = 'none';
+    voteDownSpan.style.pointerEvents = 'none';
+  }
+  fetch(`/post/${postData.id}/votes`)
+    .then((data) => data.json())
+    .then(({ post }) => {
+      counterSpan.textContent = post.count;
+    })
+    .catch((err) => console.log(err));
+
+  // vote up
+  voteUpSpan.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('.active')) {
+      fetch('/post/id/votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          vote: 'TRUE',
+          postId: postData.id,
+          userId: userID,
+        }),
+      })
+        .then((data) => data.json())
+        .then(({ post }) => {
+          counterSpan.textContent++;
+          e.target.style.pointerEvents = 'none';
+          e.target.classList.add('active');
+          voteDownSpan.classList.remove('active');
+          voteDownSpan.style.pointerEvents = 'auto';
+        })
+        .catch((err) => console.log(err));
+    }
+  });
+
+  // Vote Down
+  voteDownSpan.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('.active')) {
+      fetch('/post/id/deletevotes', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: userID,
+        }),
+      })
+        .then((data) => data.json())
+        .then(({ post }) => {
+          counterSpan.textContent--;
+          e.target.classList.add('active');
+          voteUpSpan.classList.remove('active');
+          e.target.style.pointerEvents = 'none';
+          voteUpSpan.style.pointerEvents = 'auto';
+        })
+        .catch((err) => console.log(err));
+    }
+  });
   // Post Content Section
   const postDetailsContainerDiv = createElement('div', 'post-details-container');
   const postDetailsDiv = createElement('div', 'posted-details');
@@ -63,6 +125,8 @@ const createPostCard = (postData) => {
   const commentsContainer = createElement('div', 'comments-container');
   const commentForm = createElement('form', 'comment-form');
   const commentInput = createElement('input', 'comment-input');
+  const sendIcon = createElement('span', 'material-icons send-icon');
+  sendIcon.textContent = 'send';
   commentInput.setAttribute('type', 'text');
   commentInput.setAttribute('placeholder', 'Write Comment..');
 
@@ -108,10 +172,11 @@ const createPostCard = (postData) => {
     fetch(`/post/${postData.id}/comments`)
       .then((data) => data.json())
       .then(({ post, commentCount }) => {
-        commentForm.append(commentInput);
+        commentForm.append(commentInput, sendIcon);
         if (commentsContainer.children.length <= commentCount) {
           commentsContainer.append(commentForm);
         }
+        commentInput.focus();
         post.forEach((comment) => {
           const commentBox = createElement('div', 'comment-box');
           const commentedAvatar = createElement('img', 'comment-img');

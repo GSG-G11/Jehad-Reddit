@@ -30,3 +30,4 @@ const usernameProfile = document.querySelector('.username-profile');
 const redditLogo = document.querySelector('.reddit-logo');
 const navAvatarImg = document.querySelector('.nav-avatar-img');
 const scrollUpBtn = document.querySelector('.scroll-up');
+const usernameNav = document.querySelector('.username-nav');
