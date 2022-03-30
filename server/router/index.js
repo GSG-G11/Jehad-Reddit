@@ -15,6 +15,7 @@ const {
   addPost,
   getAllPosts,
   getUserPosts,
+  deletePost,
   getPostComments,
   addComment,
   addVote,
@@ -28,7 +29,7 @@ router.get('/home', getTrendingPosts);
 
 router.post('/posts', checkAuth, addPost);
 router.get('/posts', getAllPosts);
-
+router.delete('/post/:id/delete', deletePost);
 router.get('/search/:value', getRedditPostsWhenSearch);
 router.get('/search/:value/show', searchPage);
 

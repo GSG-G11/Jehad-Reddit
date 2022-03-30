@@ -12,6 +12,7 @@ const {
   addPost,
   getAllPosts,
   getUserPosts,
+  deletePost,
 } = require('./posts');
 
 const { getPostComments, addComment } = require('./comments');
@@ -40,6 +41,7 @@ module.exports = {
   addPost,
   getAllPosts,
   getUserPosts,
+  deletePost,
   getPostComments,
   addComment,
   addVote,

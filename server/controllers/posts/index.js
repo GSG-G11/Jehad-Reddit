@@ -3,6 +3,7 @@ const getTrendingPosts = require('./getTrendingPosts');
 const addPost = require('./addPost');
 const getAllPosts = require('./getAllPosts');
 const getUserPosts = require('./getUserPosts');
+const deletePost = require('./deletePost');
 
 module.exports = {
   getRedditPostsWhenSearch,
@@ -10,4 +11,5 @@ module.exports = {
   addPost,
   getAllPosts,
   getUserPosts,
+  deletePost,
 };
